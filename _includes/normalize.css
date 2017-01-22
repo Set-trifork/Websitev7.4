@@ -6,12 +6,28 @@
 
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('../fonts/Montserrat-Regular.ttf');
+	font-family: 'Bungee';
+	src: url('../fonts/Bungee/BungeeHairline-Regular.ttf');
 }
 @font-face {
-	font-family: 'MontserratB';
-	src: url('../fonts/Montserrat-Bold.ttf');
+	font-family: 'BungeeB';
+	src: url('../fonts/Bungee/Bungee-Regular.ttf');
+}
+@font-face {
+	font-family: 'Rubik';
+	src: url('../fonts/Rubik/Rubik-Light.ttf');
+}
+@font-face {
+	font-family: 'RubikI';
+	src: url('../fonts/Rubik/Rubik-LightItalic.ttf');
+}
+@font-face {
+	font-family: 'RubikB';
+	src: url('../fonts/Rubik/Rubik-Medium.ttf');
+}
+@font-face {
+	font-family: 'RubikBI';
+	src: url('../fonts/Rubik/Rubik-MediumItalic.ttf');
 }
 
 /**
@@ -72,7 +88,7 @@ audio:not([controls]) {
  */
 
 html {
-    font-family: Montserrat, Helevetica, Arial, sans-serif; /* 1 */
+    font-family: Rubik, Helevetica, Arial, sans-serif; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
     -ms-text-size-adjust: 100%; /* 2 */
 }
@@ -134,8 +150,7 @@ abbr[title] {
 
 b,
 strong {
-    font-family: MontserratB, Helevetica, Arial, sans-serif; /* 1 */
-    font-weight: bold;
+    font-family: RubikB, Helevetica, Arial, sans-serif; /* 1 */
 }
 
 /**

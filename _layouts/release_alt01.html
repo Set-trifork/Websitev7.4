@@ -23,26 +23,22 @@
 	 <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
 </head>
 <body>
-<ul id="nav">
-	<li><a href="/"><img src="/assets/img/basspistol_minilogo.png" title="BASSPISTOL" /></a>
-		
-	</li>
+  <div id="navigation">{% include navmenu.html %}</div>
+  <div id="content">
+  <div id="footer">{% include footer.html %}</div>
 
-</ul>
-<div id="footer">{% include footer.html %}</div>
-</div>
 
 	<div class="scrollblock" id="intro">
 		<h1 id="title">&nbsp;&nbsp; TFB - OTK &nbsp;&nbsp;</h1>
 		<p id="author">
 			#BPIST013
-			
+
 		</p><img src="/assets/coverart/BPIST013/fragle1.gif" />
 		<p id="desc" style="font-size:1em;">Grown somewhere beyond the laws of physics,<br />Enter this cybernetic opus of oblivion,<br />and computer aided overstanding.
 		<br />Click the superlink bellow And suck it down from the interwebz.</p>
 		<p id="download">{% assign artists = site.artists[page.artist] %}
 			<br /><br /><span class="accent">&#9733;</span> <a href="{{ page.download }}">DOWNLOAD </a><span class="accent">&#9733;</span><br />Scroll down and listen!<br /><small>If you are unfamiliar with torrent files, please use this <a href="http://basspistol.com/assets/mu/TheFragleBay-TFB-OTK_MP3.zip">link here.</a></small>
-			
+
 		</p>
 	</div>
 
@@ -54,18 +50,18 @@
 		<h3 id="zoom-in">The key to inner-space.</h3>
 		<h3 id="any">And Invite you to Enter:</h3>
 	</div>
-	
+
 	<div class="scrollblock" id="examples-pin">
 		<h2>THE FRAGLEBAY </h2>
 		<h2 id="unpin">ON THE KEYBOARD</h2><img src="/assets/coverart/BPIST013/fragle2.gif" />
 	</div>
-	
+
 	<div class="scrollblock" id="examples-parallax">
 		<h2 id="parallax1">ON THE KEYBOARD</h2>
 		<h3 id="parallax2">ON THE KEYBOARD</h3>
 		<h3 id="parallax3">ON THE KEYBOARD</h3>
 	</div>
-	
+
 	<div class="scrollblock" id="examples-easing"><p style="font-size:48px">Stay</p>
 		<h2 id="easing">Fragle</h2>
 		<div id="easing_bottom"></div>
@@ -77,16 +73,17 @@
 <img src="/assets/coverart/BPIST013/TFB-OTK.png" />
 	<ul class="playlist">
 {% for player_id in page.player_id %}
-{% assign players = page.player[player_id] %}  <li><a href="{{ players.track }}">{{ players.title }}</a></li> 
+{% assign players = page.player[player_id] %}  <li><a href="{{ players.track }}">{{ players.title }}</a></li>
 {% endfor %}
 </ul>
 	</div>
+</div>
 	<script>
 		$(document).ready(function() {
-			
+
 			// initialize the plugin, pass in the class selector for the sections of content (blocks)
 			var scrollorama = $.scrollorama({ blocks:'.scrollblock' });
-			
+
 			// assign function to add behavior for onBlockChange event
 			scrollorama.onBlockChange(function() {
 				var i = scrollorama.blockIndex;
@@ -94,25 +91,25 @@
 					.css('display','block')
 					.text('onBlockChange | blockIndex:'+i+' | current block: '+scrollorama.settings.blocks.eq(i).attr('id'));
 			});
-			
+
 			// lettering.js for coolness
 			$('#title').lettering();
 			$('#title span')
 				.css('display','block')
 				.css('float','left');
 			$('.char9').css('padding-left','6px');
-			
+
 			// animate the title letters to explode
 			scrollorama
 				.animate('#title',{ duration: 300, property:'zoom', end: 8 })
 				.animate('#author',{ duration: 10, property:'z-index', end: 0 });
-			
+
 			$('#title span').each(function() {
 				scrollorama
 					.animate($(this),{ duration: 400, property:'top', end: Math.random()*120-180 })
 					.animate($(this),{ duration: 300, property:'rotate', start:0, end:Math.random()*720-360 });
 			});
-			
+
 			// animate some examples
 			scrollorama
 				.animate('#unpin',{ duration:500, property:'padding-top', start:400, pin:true })
@@ -122,12 +119,12 @@
 				.animate('#zoom-in',{ delay: 200, duration: 600, property:'zoom', start:8 })
 				.animate('#any',{ delay: 700, duration: 200, property:'opacity', start:0 })
 				.animate('#any',{ delay: 800, duration: 200, property:'letter-spacing', start:18 });
-			
+
 			// animate the parallaxing
 			scrollorama
 				.animate('#parallax2',{ delay: 400, duration: 600, property:'top', start:800, end:-800 })
 				.animate('#parallax3',{ delay: 200, duration: 1200, property:'top', start:500, end:-500 });
-			
+
 			// animate some easing examples
 			var $easing = $('#easing'),
 				$clone = $easing.clone().appendTo('#examples-easing')
@@ -138,15 +135,15 @@
 								'easeOutQuad',
 								'easeOutCubic',
 								'easeOutQuart',
-								'easeOutQuint', 
+								'easeOutQuint',
 								'easeOutExpo' 		];
 			$clone.find('span')
 				.each( function( idx, el ){
-					scrollorama.animate( $(this), {	delay:400, duration: 500, 
+					scrollorama.animate( $(this), {	delay:400, duration: 500,
 													property:'top', end: 300,
 													easing: easing_array[idx] });
 				})
-			
+
 		});
 	</script>
 

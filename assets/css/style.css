@@ -3,4 +3,4 @@
 
 {% include normalize.css %}
 {% include style.css %}
-/*{% include navmenu.css %}*/
+{% include navmenu.css %}
