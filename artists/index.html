@@ -1,0 +1,50 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ site.title }} Artists - {{ site.tagline }}</title>
+  <meta charset="utf-8" />
+  <meta name='robots' content='index'/>
+  <meta name="description" content="Basspistol Artists.">
+  <meta name="keywords" content="franky fresco, holyhertz, jokko, max, park, publicservice, reset, simio, sweatsky, synapset, tikov, tfb, fraglebay">
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/navmenu.css" />
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+  <link rel="shortcut icon" href="/assets/img/basspistolico.png" type="image/png" />
+
+<script src="/assets/js/jquery-1.8.2.min.js"></script>
+<script src="/assets/js/curtain.js"></script>
+<script src="/assets/js/scripts.js"></script>
+<link rel="stylesheet" href="/assets/css/normalize.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link href="/assets/js/curtain.css" rel="stylesheet" />
+</head>
+
+<body>{% include navmenu.html %}
+
+<div id="header"><div id="footer">{% include footer.html %}</div></div>
+
+<ul class="curtains">
+ <li style="background-color:rgba(0,119,255,0.95);" id="toprow777">
+  <section>
+   <h1 style="font-size:144px;line-height:144px">Basspistol<br />Artist Roster</h1>
+   <p>Our Artists are free and indenpendent: We have no exculisivity deals. If you feel you can offer these Geniouses a better deal then <a href="https://github.com/Basspistol/Music-Syndicate" target="_blank">ours,</a> you should contact them ASAP</p>
+  </section>
+ </li>
+{% for artist_id in site.artist_ids %}
+{% assign artist = site.artists[artist_id] %}
+ <li style="background-image:url({{ artist.avatar}});background-size:contain;" id="{{ artist_id }}">
+  <section>
+   <h1 style="font-size:72px;"><a href="{{ artist.web }}" target="_blank">{{ artist.display_name }}</a></h1>
+   <p>Email: <a href="mailto:{{ artist.email }}" style="color:#ffffff;">{{ artist.email }}</a></p>
+   <p>{{ artist.bio }}</p>
+  </section>
+ </li>
+{% endfor %}
+</ul>
+
+</body>
+
+</html>

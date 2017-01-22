@@ -1,0 +1,10 @@
+---
+layout: blog
+title: Web 3.0
+category: blog
+images:
+  one: /assets/img/bg/kicknbasemanifesto.jpg
+---
+We believe in music. The Music Industry is healthy and blossoming like never before, opening the spirits and souls of more people than ever. We, the people. We have a magic magnifying glass, that allows us to see what happens when the sweet artists get into to the salty ocean of creativity. This is what we work for. Nothing less, nothing more. <br />And if you want to, <a href="/artists/">we</a> will <a href="/radio"><strong>share it with you.</strong></a>
+
+

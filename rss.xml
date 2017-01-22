@@ -1,0 +1,70 @@
+---
+title : The Basspistol RSS Feed
+---
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+ 
+  <channel>
+
+    <title>{{ site.title }}</title>
+    <description>Basspistol Podcast. A fluxus from an arrogant upcoming music syndicate</description>
+    <link>http://basspistol.com</link>
+    <language>en-us</language>
+    <copyright>Creative Commons CC-BY-SA</copyright>
+    <lastBuildDate>{{ site.time | date_to_xmlschema }}</lastBuildDate>
+    <pubDate>{{ site.time | date_to_xmlschema }}</pubDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <webMaster>info@basspistol.com</webMaster>
+
+    <itunes:author>Basspistol Uncorporated</itunes:author>
+    <itunes:subtitle>{{ site.tagline }}</itunes:subtitle>
+    <itunes:summary>Freedom Music for the opensource minded.</itunes:summary>
+
+    <itunes:owner>
+           <itunes:name>Basspistol Uncorporated</itunes:name>
+           <itunes:email>info@basspistol.com</itunes:email>
+    </itunes:owner>
+
+<itunes:explicit>No</itunes:explicit>
+
+<itunes:image href="http://mp3.sakrecoer.com/baspicka.jpg"/>
+   
+<itunes:category text="Music">
+     <itunes:category text="Podcasting"/>
+</itunes:category>
+
+{% for post in site.categories.discog %}
+
+<item>
+<title>{{ post.title }}</title>
+<link>{{ site.production_url }}{{ post.url }}</link>
+<guid>{{ post.uid }}</guid>
+<description> &lt;img src=&quot;{{ site.production_url }}{{ post.coverart.art }}&quot; /&gt; &lt;br /&gt;{{ post.content | xml_escape }}</description>
+
+
+
+
+{% for player_id in post.player_id limit: 1 offset: 3 %}
+{% assign players = post.player[player_id] %}  <enclosure url="{{ site.production_url }}{{ players.track }}" type="audio/mpeg"/>  
+{% endfor %}
+
+<category>Podcasts</category>
+<pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+
+<itunes:author>Basspistol</itunes:author>
+
+<itunes:explicit>No</itunes:explicit>
+<itunes:subtitle>{{ post.content }}</itunes:subtitle>
+<itunes:summary>{{ post.content }}</itunes:summary>
+<itunes:keywords>{{ post.tag }}</itunes:keywords>
+<itunes:image href="{{ site.production_url }}{{ post.bgimg }}"/>
+
+</item>
+
+{% endfor %}
+
+</channel>
+
+</rss>

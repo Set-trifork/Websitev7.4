@@ -1,0 +1,144 @@
+body, div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dt, dd, img, form, fieldset, input, textarea, blockquote {
+	margin: 0; padding: 0; border: 0;
+}
+body {
+	 	background: #fff url(webekementsholyhertzbody.jpg);
+	 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h2 {
+	 font-family: Oswald;
+	 text-transform: uppercase;
+	 letter-spacing: -5px;
+}
+p{
+	 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+section {
+	overflow: hidden; height: 993px;
+}
+
+#intro { 
+	background: #000 url(webekementsholyhertz.jpg) top left fixed no-repeat; 
+	background-size: cover;
+
+}
+
+	#intro h1 {
+		width: 600px; height: 600px;
+		background: url(vinylbg600.png); text-indent: -9999px;
+		position: fixed; top: 45px; left: 0;
+
+	}
+	#intro h2 {
+		width: 600px; height: 600px;
+		background: url(holyhertzcover.jpg); text-indent: -9999px;
+		position: fixed; top: 45px; left: 0;
+
+	}
+	#intro p {
+		position: relative; top: 150px; left: 410px;
+		width: 508px; margin: 0 0 30px 0;
+		color: #fff;
+		background: rgba(34, 153, 102, 0.5);
+		border-radius: 4px;
+		padding: 10px;
+        	
+	}
+	#intro p.quote {
+		font-weight: bold;
+		font-family: Oswald;
+ 		text-transform: uppercase;
+		font-size: 30px;
+		line-height: 100%;
+		letter-spacing: -2px;
+		color: #fff;
+	}
+
+#play {
+	background: #000 url(holyhertz-cover-web.jpg) top left no-repeat;
+	background-size: contain; 
+	}
+
+	#play h2 {
+		width: 556px; height: 126px;
+		background: url(holytitle.png) no-repeat top left; text-indent: -9999px;
+		position: absolute; top: 50px; left: 665px;
+	}
+	
+	#play p {
+		position: relative; top: 26px; left: 77px;
+		font-family: Oswald;
+		font-weight: bold;
+		font-size: 72px;
+		color: #fff;
+	}
+	#play p.credits {
+	font-size: 12px;
+	line-height:100%;
+         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #fff;
+	}
+
+	#play ul.playlist li {
+		margin: 0;
+		text-transform: uppercase;
+	}
+
+    	#play ul.playlist li a {
+		color: #fff;
+		font-size: 30px;
+		font-family: Oswald;
+		font-weight: bold;
+	}
+	ul.playlist li {
+    		background-color: rgba(78, 146, 191, 0.5);
+	}
+	ul.playlist li:hover {
+    		background-color: rgba(34, 153, 102, 0.5);
+	}
+
+
+#download {
+	background: #000 url(webekementsholyhertz.jpg) top left repeat fixed;  
+	padding: 300px 0 0 50px;
+}
+	#download table {
+	left: 100px;
+}
+	#download td {
+		vertical-align: top;
+}
+	#download h2 {
+		color: #229966; 
+		font-size: 72px;
+	}
+	#download p {
+		margin-top: 20px;
+	}
+	#download img {
+		border-radius: 4px;
+		-webkit-transition-property: hover;
+ 		 -webkit-transition: box-shadow 0.25s ease-in-out;
+		 -moz-transition: box-shadow 0.25s linear 0s; /* firefox 4 */
+		  -o-transition-property: box-shadow; /* opera 10.5 */
+		  -o-transition-duration: 0.25s;
+	}
+	#download img:hover {
+	background: #f40;
+ 	box-shadow:  3px 3px 35px rgba(255, 68, 0, 1);
+	}
+
+
+#additional {
+background: #000 url(webekementsholyhertz.jpg) top left no-repeat;
+background-size: cover;
+}
+	#additional p {
+		position: relative; top: 110px; left: 110px;
+	}
+	
+#scrol-wrap{
+ 
+}

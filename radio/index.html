@@ -1,0 +1,108 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="dc.date.modified" scheme="ISO8601" content="{{ site.time | date_to_xmlschema }}" />
+<title>{{ site.title }} - Basspistol Radio</title>
+<meta charset="utf-8" />
+<meta name='robots' content='index'/>
+<meta name="description" content="Basspistol Radio!,">
+<meta name="keywords" content="basspistol, Music, mp3, ogg, radio, archive, download">
+<link rel="shortcut icon" href="basspistolico.png" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+</head>
+
+
+<body id="Music">
+{% include navmenu.html %}
+ <div id="navigation">
+
+  <button id="mu_pause">Pause<br />Music</button>
+  <!-- pagination -->
+<h1>Live Mix By <br />Dj Robot</h1>
+<p>This is freedom music. New and fresh shows to be anounced!
+</p>
+	
+
+ </div>
+ <div id="radiostatus">
+	
+<iframe width="100%" height="100%" src='http://basspistol.com:8000'>
+					Your browser does not support iframes.. follow this <a href='http://basspistol.com:8000'>Link</a> for radio status.
+				</iframe>
+ </div>
+
+<div>
+<ul id="nav">
+	<li><a href="/" target="_blank"><img src="/assets/img/basspistol_minilogo.png" title="BASSPISTOL" /></a>
+	</li>
+
+</ul>
+	</div>
+
+
+
+ <audio id="radiocontrol" preload="true" autoplay ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime);">
+  <source src="http://basspistol.com:8000/radio.mp3" type="audio/mpeg" />
+  <source src="http://basspistol.com:8000/radio.ogg" type="audio/ogg" />
+  <h1>Your browser isn't ready for so much hotness. Use the download links below instead <3</h1>.
+ </audio>
+
+ <span id="tracktime"></span>
+
+<!-- stylemachine by Sakrecoer -snipthis if ya feel it - its the pary that runs the player ;) -->
+
+
+
+<script type="text/javascript">
+
+
+var mu = document.getElementsByTagName("audio")[0];
+
+var pauseButton = document.getElementById("mu_pause");
+
+function muFade() {
+
+mu.classList.add("stopfade");
+
+}
+
+mu.addEventListener('ended', function() {
+
+// only functional if "loop" is removed
+
+mu.pause();
+mu.currentTime=0;
+
+// to capture IE10
+
+muFade();
+
+});
+
+pauseButton.addEventListener("click", function() {
+
+mu.classList.toggle("stopfade");
+
+if (mu.paused) {
+
+mu.play();
+
+pauseButton.innerHTML = "Pause<br />Music";
+
+} else {
+
+mu.pause();
+
+ pauseButton.innerHTML = "Resume<br />Music";
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

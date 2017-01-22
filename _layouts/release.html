@@ -1,0 +1,83 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+{% assign artists = site.artists[page.artist] %}
+<title>BASSPISTOL - {{ page.title }} | {{ artists.display_name }} - &#35;{{ page.ref }}</title>
+<meta name="description" content="{{ page.title }} by {{ artists.display_name }} - &#35;{{ page.ref }} on {{ site.title }}">
+<link rel="shortcut icon" href="/assets/img/basspistolico.png" type="image/png" />
+<link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/assets/js/SM2/css/page-player.css" />
+<link rel="stylesheet" type="text/css" href="/assets/js/SM2/flashblock/flashblock.css" />
+<link rel="stylesheet" type="text/css" href="/assets/js/SM2/css/optional-annotations.css" />
+<script src="/assets/js/SM2/script/soundmanager2.js"></script>
+<script src="/assets/js/SM2/script/page-player.js"></script>
+<script src="/assets/js/SM2/script/optional-page-player-metadata.js"></script>
+
+<link href="{{ page.coverart.css }}" rel="stylesheet" />
+<link href="/assets/coverart/curtain.css" rel="stylesheet" />
+<script src="/assets/coverart/jquery-1.8.2.min.js"></script>
+<script src="/assets/coverart/curtain.js"></script>
+<script src="/assets/coverart/jquery.scrollorama.js"></script>
+<script src="{{ page.coverart.js }}"></script>
+
+<link rel="stylesheet" href="/assets/css/navmenu.css" />
+</head>
+<body>
+
+{% include navmenu.html %}
+<ul class="curtains">
+<li>
+		<section id="intro">
+			<h1>{{ page.title }}</h1>
+			<h2>By {% assign artists = site.artists[page.artist] %}{{ artists.display_name }}</h2>
+			
+			<p class="quote">{{ page.quote }}</p>
+		
+			<p>{{ content }}</p>
+		</section>
+	</li>
+	<li>
+		<section id="play">		
+			<h2>Play</h2>
+			
+			
+			<p>TRACKLIST</p>
+
+<ul class="playlist">
+{% for player_id in page.player_id %}
+{% assign players = page.player[player_id] %}  <li><a href="{{ players.track }}">&rarr; {{ players.title }}</a></li> 
+{% endfor %}
+</ul>
+<p class="credits">{{ page.credits }}</p>
+
+ <div id="sm2-container"> <!-- SM2 flash goes here --> </div>
+
+		</section>
+	</li>
+	<li>
+		<section id="download">		
+			
+{% assign artists = site.artists[page.artist] %}
+<a href="{{ page.download }}"><img src="/assets/coverart/{{ page.ref }}/flac.png" style="float:left" />
+<h2>Download TORRENT</h2></a>
+<p class="warning">Please support our artists using any or all of these options:
+      <br />- Donate to the <a href="mailto:{{ artists.email }}">Author!</a> Ask him/her/them how
+      <br />- Subscribe to our mailing list on info@basspistol.com
+      <br />- Write a blogg post about this release and send the link to info@basspistol.com</p>
+
+		</section>
+	</li>
+
+	<li>
+		<section id="additional">		
+			
+		
+			<p><iframe width="900" height="506" src="http://www.youtube.com/embed/videoseries?list={{ page.youtube }}" frameborder="0" allowfullscreen></iframe></p>
+		</section>
+	</li>
+</ul>
+</body>
+</html>

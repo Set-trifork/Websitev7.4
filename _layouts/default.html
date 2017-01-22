@@ -1,0 +1,23 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BASSPISTOL - {{ page.title }}</title>
+  <meta charset="utf-8" />
+  <meta name='robots' content='index'/>
+  <meta name="keywords" content="{{ page.keywords }}" />
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/navmenu.css" />
+  <link rel="shortcut icon" href="/assets/img/basspistolico.png" type="image/png" />
+
+</head>
+<body>
+{% include navmenu.html %}	
+<div id="header"><div id="footer">{% include footer.html %}</div></div>
+<div id="headtitle"><h1>{{ page.title }} {{ page.ref }}</h1></div>
+<div id="content">{{ content }}</div>
+
+</body>
+</html>

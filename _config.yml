@@ -1,0 +1,72 @@
+permalink: /:categories/:year/:month/:day/:title
+
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+highlighter: pygments
+
+title : Basspistol
+tagline: An Uncorporated Music Syndicate
+
+production_url : http://basspistol.com
+
+artist_ids: [franky, holyhertz, jokko, max, publicservice, sakrecoer, sweatsky, synapset, tikov, tfb]
+artists:
+  franky:
+    avatar: /assets/img/artists/frankyfresco.jpg
+    display_name: Franky Fresco
+    web: http://frankyfresco.com
+    bio: ''
+    email: frankyfresco@basspistol.com
+  holyhertz:
+    avatar: /assets/img/artists/holyhertz.jpg
+    display_name: Holyhertz
+    web: https://soundcloud.com/holyhertz
+    bio: ''
+    email: holyhertz@basspistol.com
+  jokko:
+    avatar: /assets/img/artists/jokko.jpg
+    display_name: Jokko
+    web: https://soundcloud.com/jokkomusic
+    bio: ''
+    email: jokko@basspistol.com
+  max:
+    avatar: /assets/img/artists/max.jpg
+    display_name: Max Park
+    web: http://twitter.com/monoliths
+    bio: ''
+    email: max@basspistol.com
+  publicservice:
+    avatar: /assets/img/artists/publicservice.jpg
+    display_name: Public Service
+    web: http://basspistol.com/artists/#publicservice
+    bio: ''
+    email: publicservice@basspistol.com
+  sakrecoer:
+    avatar: /assets/img/artists/sakrecoer.jpg
+    display_name: 'Sakrecoer Fam'
+    web: http://sakrecoer.com
+    bio: ''
+    email: sakrecoer@basspistol.com
+  synapset:
+    avatar: /assets/img/artists/synapset.jpg
+    display_name: Synapsset
+    web: http://basspistol.com/records/musical-tourism
+    bio: ''
+    email: synapset@basspistol.com
+  sweatsky:
+    avatar: /assets/img/artists/sweatsky.jpg
+    display_name: Sweatsky
+    web: https://soundcloud.com/sweatsky
+    bio: ''
+    email: sweatsky@basspistol.com
+  tikov:
+    avatar: /assets/img/artists/tikov.jpg
+    display_name: Dr. Tikov
+    web: http://tikov.com
+    bio: ''
+    email: tikov@basspistol.com
+  tfb:
+    avatar: /assets/img/artists/tfb.jpg
+    display_name: The FragleBay
+    web: http://fraglebay.tumblr.com
+    bio: ''
+    email: tfb@basspistol.com

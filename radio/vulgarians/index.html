@@ -1,0 +1,184 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="dc.date.modified" scheme="ISO8601" content="{{ site.time | date_to_xmlschema }}" />
+<title>{{ site.title }} - VULGARIANS!</title>
+<meta charset="utf-8" />
+<meta name='robots' content='index'/>
+<meta name="description" content="Basspistol Radio!,">
+<meta name="keywords" content="basspistol, Music, mp3, ogg, radio, archive, download">
+<link rel="shortcut icon" href="basspistolico.png" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" href="vulgarians.css" />
+<script src="jquery-1.11.1.min.js"></script>
+
+
+</head>
+
+
+<body id="Music">
+ <div id="navigation">
+
+  <button id="mu_pause">Pause<br />Music</button>
+  <!-- pagination -->
+<h1>Live From Detrojt STHLM</h1>
+<p>open in a player:<br /><a href="http://basspistol.com:8000/radio.mp3.m3u">MP3</a> <a href="http://basspistol.com:8000/radio.ogg.m3u">OGG</a>
+</p>
+	<div>
+<ul id="nav">
+	<li><a href="/"><img src="/assets/img/basspistol_minilogo.png" title="BASSPISTOL" /></a>
+	</li>
+
+</ul>
+	</div>
+
+ </div>
+
+
+
+
+ <audio id="radiocontrol" preload="true" autoplay ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime);">
+  <source src="http://basspistol.com:8000/radio.mp3" type="audio/mpeg" />
+  <source src="http://basspistol.com:8000/radio.ogg" type="audio/ogg" />
+  <h1>Your browser isn't ready for so much hotness. Use the download links below instead <3</h1>.
+ </audio>
+
+ <span id="tracktime"></span>
+
+<!-- stylemachine by Sakrecoer -snipthis if ya feel it - its the pary that runs the player ;) -->
+
+
+
+<script type="text/javascript">
+
+
+var mu = document.getElementsByTagName("audio")[0];
+
+var pauseButton = document.getElementById("mu_pause");
+
+function muFade() {
+
+mu.classList.add("stopfade");
+
+}
+
+mu.addEventListener('ended', function() {
+
+// only functional if "loop" is removed
+
+mu.pause();
+mu.currentTime=0;
+
+// to capture IE10
+
+muFade();
+
+});
+
+pauseButton.addEventListener("click", function() {
+
+mu.classList.toggle("stopfade");
+
+if (mu.paused) {
+
+mu.play();
+
+pauseButton.innerHTML = "Pause<br />Music";
+
+} else {
+
+mu.pause();
+
+ pauseButton.innerHTML = "Resume<br />Music";
+
+}
+
+});
+
+</script>
+<style type="text/css">
+
+/* skipper */
+
+#skipper {
+ position: absolute; bottom:0; 
+ z-index: 1; 
+ 
+}
+
+/* */
+
+
+audio{
+ position:fixed;
+ right:0;
+ bottom:0;
+ min-width:100%;
+ min-height:100%;
+ width:100%;
+ height:100%; 
+
+
+ background: #260a24 no-repeat;
+
+
+
+ background-size:cover;
+ opacity:0;
+ -webkit-transition:1s opacity;transition:1s opacity;
+
+ display: block;
+}
+
+.stopfade{
+ opacity:.7;
+}
+#mu_pause {
+ font-family: futurabold;
+ font-weight: bold;
+ line-height: 1em;
+ font-size:2.7em;
+ text-transform: uppercase;
+ /* position: fixed;
+ bottom: 30%;
+ right: 40%; */
+ display:block;
+ width:250px;
+ height: 250px;
+ border-radius: 50%;
+ border:none;
+ background:rgba(255,0,0,1);
+ cursor:pointer;
+ -webkit-transition:.3s background;
+ transition:.3s background;
+ z-index: 10000;
+  color: #fff;
+
+
+}
+#mu_pause:hover{
+ background:rgba(38,10,36,.6);
+ color: #fff;
+
+} 
+
+
+
+#tracktime {
+ position: fixed; right: 10px; bottom:-10px; 
+ font-size: 190px; font-family: futurabold; line-height:288px; letter-spacing: -20px; color: rgba(38,10,36,.9);
+
+}
+html,
+body{
+ background:url('summertime004.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+</style>
+</body>
+</html>

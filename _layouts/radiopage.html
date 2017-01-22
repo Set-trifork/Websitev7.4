@@ -1,0 +1,362 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="dc.date.modified" scheme="ISO8601" content="{{ site.time | date_to_xmlschema }}" />
+<title>{{ page.title }} - The Sakrecoer Jukebox</title>
+<meta charset="utf-8" />
+<meta name='robots' content='index'/>
+<meta name="description" content="{{ page.title }}, {{ page.content | strip_html | truncatewords: 30 }}">
+<meta name="keywords" content="{{ page.title }}, {{ page.keywords }} Sakrecoer, Music, mp3, ogg, download">
+<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="stylesheet" href="/assets/css/style2014.css" />
+<script src="/assets/js/jquery-1.11.1.min.js"></script>
+
+<script type="text/javascript">
+
+    function generateRandomPosts()
+    {
+        $.getJSON("/search.json", function(data) {
+            console.log("[search.json loaded for random posts]");
+
+            var postsCount = data.length;
+            var posts = data;
+
+            var randomIndexUsed = [];
+            var counter = 0;
+            var numberOfPosts = 5;
+
+            var divRandomPosts = $("#random_posts");
+
+            divRandomPosts.append('<h2 style="color:rgba(0,255,255,.7);">random tracks</h2><hr />');
+
+            while (counter < numberOfPosts)
+            {
+                var randomIndex = Math.floor(Math.random() * postsCount);
+
+                if (randomIndexUsed.indexOf(randomIndex) == "-1")
+                {
+                    var postHREF = posts[randomIndex].href;
+                    var postTitle = posts[randomIndex].title;
+
+                    if (counter == (numberOfPosts - 1))
+                    {
+                        divRandomPosts.append('<p><a href="' + postHREF + '">' + postTitle + '</a></p>');
+                    }
+                    else
+                    {
+                        divRandomPosts.append('<p><a href="' + postHREF + '">' + postTitle + '</a></p><hr />');
+                    }
+
+                    randomIndexUsed.push(randomIndex);
+
+                    counter++;
+                }
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        generateRandomPosts();
+    });
+function loadUrl(newLocation) {
+	window.location = newLocation;
+	return false;
+}
+</script>
+
+
+</head>
+
+
+<body id="Music">
+ <div id="navigation">
+
+  <button id="mu_pause">Pause<br />Music</button>
+  <!-- pagination -->
+
+  {% for post in site.categories.music %}
+        {% if post.url == page.url %}
+            {% assign post_index0 = forloop.index0 %}
+            {% assign post_index1 = forloop.index %}
+        {% endif %}
+    {% endfor %}
+    {% for post in site.categories.music %}
+        {% if post_index0 == forloop.index %}
+            {% assign next_post = post.url %}
+        {% endif %}
+        {% if post_index1 == forloop.index0 %}
+            {% assign prev_post = post.url %}
+        {% endif %}
+    {% endfor %}
+
+<br />
+ {% if prev_post %}
+        <a href="{{ prev_post }}" title="Previous Track"><img src="/assets/img/icons/skiprwd.png" title="Previous Track" /></a>&nbsp;&nbsp;
+    {% endif %} 
+{% for post in site.categories.music offset: 0 limit: 1 %}
+  <a id="download" title="Download This Track!" href="{{ page.mp3 }}"><img src="/assets/img/icons/dl.png" title="Download Track" /></a>
+{% endfor %}
+    {% if next_post %}
+         &nbsp;&nbsp;<a href="{{ next_post }}" title="Next Track"><img src="/assets/img/icons/skipfwd.png" title="Next Track" /></a>
+    {% endif %}
+   
+
+
+  <br /><br /><a id="lyrics" title="Lyrics/Description" href="/music/index.html#lyrics{{ page.uid }}" target="_blank">Description<br />(click for lyrics)</a>
+
+  <div id="a"></div>
+  <div id="ab">To download: <br /><b>Right-Click and "Save link as"</b></div>
+  <div id="abc"><h1>{{ page.title }}</h1>Publishing Date: {{ page..date | date_to_string }}<br />GENRE: {{ page.keywords }}</div>
+	<div>
+{% include navmenu.html %}
+	</div>
+
+ </div>
+
+
+
+{% for post in site.categories.music offset: 0 limit: 1 %}
+ <audio id="{{ page.uid }}" preload="true" autoplay ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime) + ' / ' + Math.floor(this.duration);">
+  <source src="{{ page.mp3 }}" type="audio/mpeg" />
+  <source src="{{ page.ogg }}" type="audio/ogg" />
+  <h1>Your browser isn't ready for so much hotness. Use the download links below instead <3</h1>.
+ </audio>
+
+ <span id="tracktime"></span>
+
+{% endfor %}
+
+<div id="random_posts">
+</div>
+
+<!-- stylemachine by Sakrecoer -snipthis if ya feel it - its the pary that runs the player ;) -->
+
+{% include cookiemonster.html %}
+
+<script type="text/javascript">
+
+
+var mu = document.getElementsByTagName("audio")[0];
+
+var pauseButton = document.getElementById("mu_pause");
+
+function muFade() {
+
+mu.classList.add("stopfade");
+
+}
+
+mu.addEventListener('ended', function() {
+
+// only functional if "loop" is removed
+
+mu.pause();
+mu.currentTime=0;
+    {% if prev_post %}
+loadUrl('{{ prev_post }}'); return false;
+    {% endif %}
+
+// to capture IE10
+
+muFade();
+
+});
+
+pauseButton.addEventListener("click", function() {
+
+mu.classList.toggle("stopfade");
+
+if (mu.paused) {
+
+mu.play();
+
+pauseButton.innerHTML = "Pause<br />Music";
+
+} else {
+
+mu.pause();
+
+ pauseButton.innerHTML = "Resume<br />Music";
+
+}
+
+});
+
+</script>
+{% for post in site.categories.music offset: 0 limit: 1 %}
+<style type="text/css">
+
+/* skipper */
+
+#skipper {
+ position: absolute; bottom:0; 
+ z-index: 1; 
+ 
+}
+
+/* */
+
+
+audio{
+ position:fixed;
+ right:0;
+ bottom:0;
+ min-width:100%;
+ min-height:100%;
+ width:100%;
+ height:100%; 
+
+
+ background:url(/assets/img/bg/frontpage.jpg) no-repeat;
+
+
+
+ background-size:cover;
+ opacity:0;
+ -webkit-transition:1s opacity;transition:1s opacity;
+
+ display: block;
+}
+
+.stopfade{
+ opacity:.7;
+}
+#mu_pause {
+ font-family: futurabold;
+ font-weight: bold;
+ line-height: 1em;
+ font-size:3em;
+ text-transform: uppercase;
+ /* position: fixed;
+ bottom: 30%;
+ right: 40%; */
+ display:block;
+ width:250px;
+ height: 250px;
+ border-radius: 50%;
+ border:none;
+ background:rgba(255,0,0,1);
+ cursor:pointer;
+ -webkit-transition:.3s background;
+ transition:.3s background;
+ z-index: 10000;
+  color: #fff;
+
+
+}
+#mu_pause:hover{
+ background:rgba(0,255,255,.6);
+ color: #fff;
+
+} 
+/* ---- hide divs  ---- */
+
+
+
+#abc,#ab {
+    display: none;
+    background-color: transparent;
+
+}
+/*show .ab*/
+#download:hover ~ #ab {
+    display: block;
+}
+/*show .abc*/
+#lyrics:hover ~ #abc {
+    display: block;
+
+}
+
+#download:hover ~ #a,
+#lyrics:hover ~ #a{
+    display: none;
+
+}
+#download,
+#lyrics{
+  font-family: futurabold;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#a, #ab, #abc {
+   position: fixed;
+   bottom: 0px;
+   right: 0px;
+   width: 75%;
+   height: 85%;
+    background-color: transparent;
+}
+
+/* default */
+#a{
+   width: 1px;
+   height: 1px;
+}
+
+/*  download  */
+#ab {
+    top:140px; left:350px;
+    width: 600px; height: 100px;padding: 17px;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: futura; font-size:24px; text-align: left;
+    opacity: 1;
+    text-transform:uppercase;
+    border-radius:4px;
+}
+
+/*  lyrics  */
+#abc{
+    top:140px; left:350px;
+    width: 600px; height:75%;padding: 0 17px 17px 17px;
+    background-color: rgba(0, 0, 0, .4);
+    font-family: futura; font-size:12px; text-align: left;
+    opacity: 1;
+    border-radius:4px;
+}
+
+
+
+#tracktime {
+ position: fixed; right: 10px; bottom:-10px; 
+ font-size: 272px; font-family: futurabold; line-height:288px; letter-spacing: -20px; color: rgba(0,255,255,.3);
+
+}
+html,
+body{
+ background:url('{{ page.bgimg }}') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#random_posts{
+ position: fixed; right: 20px; top:140px;
+ width: 300px;
+ font-family: futura; font-size: 12px;
+ line-height: 10px;
+ background:rgba(0,0,0,1);
+ border-radius: 4px;
+ padding: 7px;
+ -webkit-transition:1s opacity;transition:1s opacity;
+ opacity: .3;
+ z-index: 1000;
+}
+hr {
+ border-color: #222;
+}
+#random_posts:hover{
+ opacity: .7;
+
+}
+
+
+
+</style>
+{% endfor %}
+</body>
+</html>

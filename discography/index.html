@@ -1,0 +1,40 @@
+---
+title: Discography
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ page.title }} - {{ site.title }}, {{ site.tagline }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name='robots' content='index'/>
+  <meta name="description" content="Basspistol is an arrogant upcoming music syndicate founded in January 2010. We work using open-source technologies and philosophies to craft and release our records.">
+  <meta name="keywords" content="Franky, Fresco, Holyhertz, Jokko, Max, Park, Public Service, Sakrecoer, reSet, Simio, Synapset, Synapskollaps, Dr Tikov, The FragleBay, TFB, Freedom, Music, GNUsic, Electronic, Techno, Kick, Base, mp3, ogg, flac, open source, open mind, groove, funk, hiphop, gospel, Kick&#39;n&#39;base, basspistol, bass, pistol, hardware, elektron, machinedrum, octatrack, monomachine, jomox, mbase01, waldorf, blofeld, AW16G, yamaha, synthesizer, synths, creative, commons, Ardour, JAMin, Linux">
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="shortcut icon" href="/assets/img/basspistolico.png" type="image/png" />
+</head>
+<body>
+
+  <div id="navigation">{% include navmenu.html %}</div>
+  <div id="content">
+    <div id="pagewrap">
+      <div class="wrapper grid4">
+        {% for page in site.categories.discog offset: 0 limit: 15 %}
+		    <div class="col">
+          <a href="{{ page.url }}" class="records"><img class="recordthumbs" src="{{ page.coverart.art }}" title="{{ page.title }}" alt="{{ page.title }}" /></a>
+		    </div>
+        {% endfor %}
+		    <div class="col">
+        <a href="/radio/" class><img class="recordthumbs" src="../assets/img/radio.jpg" title="Basspistol Radio" alt="Basspistol Radio" /></a>
+		    </div>
+      </div>
+	<!-- /wrapper -->
+    <div id="footer">{% include footer.html %}</div>
+    </div>
+  <!-- pagewrap -->
+
+  </div>
+  <!-- /content -->
+
+</body>
+</html>

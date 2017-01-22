@@ -1,0 +1,50 @@
+---
+title: About
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ site.title }} - {{ site.tagline }}</title>
+  <meta charset="utf-8" />
+  <meta name='robots' content='index'/>
+  <meta name="description" content="We believe in music. The Music Industry is healthy and blossoming like never before, opening the spirits and souls of more people than ever. We, the people.">
+  <meta name="keywords" content="About, open source, open mind, groove, funk, hiphop, gospel, Kick'n'base, basspistol, bass, pistol">
+  <link rel="stylesheet" href="/assets/css/normalize.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="stylesheet" href="/assets/css/navmenu.css" />
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+  <link rel="shortcut icon" href="/assets/img/basspistolico.png" type="image/png" />
+
+<script src="/assets/js/jquery-1.8.2.min.js"></script>
+<script src="/assets/js/curtain.js"></script>
+<script src="/assets/js/scripts.js"></script>
+<link rel="stylesheet" href="/assets/css/normalize.css" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+<link href="/assets/js/curtain_about.css" rel="stylesheet" />
+</head>
+<body>
+{% include navmenu.html %}
+<div id="header">
+ <div id="footer">{% include footer.html %}</div>
+</div>
+
+<ul class="curtains">
+{% for post in site.categories.blog offset: 0 limit: 15 %}
+<li style="background-image:url({{ post.images.one }});background-size:cover;">
+		<section>
+			
+			<h1 style="font-size:144px;color:rgba(255, 255, 255, 0.25);">{{ post.title }}</h1>
+			{{ post.content }}
+			
+		
+		</section>
+	</li>
+{% endfor %}
+<ul>
+ 
+
+<div class="content" style="background:transparent; box-shadow: none; padding: 0;margin-top:17px;"><h1 id="radiobutton"><a href="https://github.com/Basspistol/Music-Syndicate/blob/master/membership_contract.txt" target="_blank">Basspistol Contract</a></h1></div>
+
+
+</body>
+</html>
